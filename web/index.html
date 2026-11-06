@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>효기요 도구 작업실</title>
+<style>
+  :root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#e3e2dd; --accent:#2f6fed; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#161615; --card:#1f1f1e; --ink:#ecebe6; --muted:#a3a29c; --line:#33322f; --accent:#7aa2ff; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:20px 16px 8px; max-width:1100px; margin:auto; }
+  h1 { margin:0 0 4px; font-size:22px; }
+  nav button { margin-right:6px; }
+  main { max-width:1100px; margin:auto; padding:8px 16px 40px; }
+  .controls { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+  input, select, button, textarea { font:inherit; color:inherit; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:6px 10px; }
+  button { cursor:pointer; } button.on { border-color:var(--accent); color:var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .card h3 { margin:0 0 4px; font-size:16px; }
+  .meta { color:var(--muted); font-size:13px; }
+  .tag { display:inline-block; font-size:12px; border:1px solid var(--line); border-radius:999px; padding:0 8px; margin:4px 4px 0 0; }
+  .apply { color:var(--accent); font-size:13px; margin-top:6px; }
+  textarea { width:100%; margin-top:8px; min-height:48px; resize:vertical; }
+  .board { display:grid; grid-template-columns:repeat(4,minmax(200px,1fr)); gap:10px; overflow-x:auto; }
+  .col { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px; min-height:200px; }
+  .task { border:1px solid var(--line); border-radius:8px; padding:8px; margin-top:8px; }
+  .task .row { display:flex; gap:4px; margin-top:6px; }
+  @media (max-width:700px) { .board { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>도구 작업실</h1>
+  <div class="meta" id="count"></div>
+  <nav style="margin-top:10px"><button id="tabTools" class="on">도구 목록</button><button id="tabBoard">작업 보드</button></nav>
+</header>
+<main>
+  <section id="tools">
+    <div class="controls">
+      <input id="q" placeholder="이름·용도 검색" style="flex:1;min-width:180px">
+      <select id="cat"><option value="">전체 분류</option></select>
+      <button id="onlyApply">적용 후보만</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+  <section id="board" hidden>
+    <div class="controls">
+      <input id="newTask" placeholder="새 작업 (예: Whisper 자막 생성 연결)" style="flex:1;min-width:200px">
+      <input id="newDone" placeholder="완료 조건" style="flex:1;min-width:200px">
+      <button id="addTask">추가</button>
+    </div>
+    <div class="board" id="cols"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
