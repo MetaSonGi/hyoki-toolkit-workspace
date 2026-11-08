@@ -1,5 +1,9 @@
 # 도구 작업실 (hyoki-toolkit-workspace)
 
+> **관련 저장소 구분** — 이 저장소는 **경량판**입니다: 도구 데이터를 `data/tools.json`으로 분리해 직접 추가·수정하기 쉽고, 검색·메모·칸반만 담았습니다.
+> 프로젝트별 적용 매핑과 JSON 백업까지 필요하면 **정식판** [tool-catalog-workspace](https://github.com/MetaSonGi/tool-catalog-workspace)를 쓰세요.
+
+
 대화에서 정리한 62개 도구를 검색하고, 내 적용 메모를 남기고, 개발 작업을 칸반 보드로 관리하는 웹 페이지예요.
 
 ## 기능
